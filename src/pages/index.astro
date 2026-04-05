@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Product {
+  img: string;
+  label: string;
+  name: string;
+  desc: string;
+}
+
+const products: Product[] = [
+  { img: 'product-1.jpg', label: 'Bestseller', name: 'Dayana', desc: 'Structured Hand Bag' },
+  { img: 'product-2.jpg', label: 'New Season', name: 'Nadin', desc: 'Woven from Village Hands' },
+  { img: 'product-3.jpg', label: 'Crossbody', name: 'Moonsary', desc: 'Sling Bag' },
+  { img: 'product-4.jpg', label: 'Summer', name: 'Holiday', desc: 'Beach Tote' },
+  { img: 'product-5.jpg', label: 'Everyday', name: 'Twinny', desc: 'Daily Tote' },
+  { img: 'product-6.jpg', label: 'Limited', name: 'Black Series', desc: 'Batik Fusion' },
+];
+
+interface Country {
+  emoji: string;
+  name: string;
+}
+
+const countries: Country[] = [
+  { emoji: '🇮🇩', name: 'Indonesia' },
+  { emoji: '🇯🇵', name: 'Japan' },
+  { emoji: '🇰🇷', name: 'Korea' },
+  { emoji: '🇹🇷', name: 'Turkey' },
+  { emoji: '🇺🇸', name: 'America' },
+  { emoji: '🇵🇹', name: 'Portugal' },
+];
+const title = 'KETAK NUSANTARA — From Village to the World';
+const description = 'Ketak Nusantara — Sustainable Handcrafted Bags from Lombok. Women-Powered • Slow Craft';
+const ogImage = 'https://ketaknusantara.fajrika.site/images/hero-bg.jpg';
+---
+
+<Layout>
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-90 flex items-center justify-between px-6 md:px-10 py-5 mix-blend-difference">
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <a href="#" class="text-lg md:text-xl font-bold font-display tracking-wider text-white">KETAK NUSANTARA</a>
+    <a href="https://shopee.co.id/ketakofficial" target="_blank"><i class="fa-solid fa-bag-shopping text-lg hover:text-ketak transition"></i></a>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="flex-1">
+      <div class="text-xs tracking-[0.4em] text-gray-500 uppercase mb-10">Navigation</div>
+      <ul class="space-y-6">
+        <li><a href="#home" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">01 — Home</a></li>
+        <li><a href="#about" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">02 — Story</a></li>
+        <li><a href="#products" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">03 — Products</a></li>
+        <li><a href="#founder" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">04 — Founder</a></li>
+        <li><a href="#global" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">05 — Global</a></li>
+        <li><a href="#contact" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">06 — Contact</a></li>
+      </ul>
+    </div>
+    <div class="border-t border-gray-800 pt-8">
+      <div class="text-xs tracking-[0.4em] text-gray-500 uppercase mb-4">Follow</div>
+      <div class="flex gap-4 text-lg">
+        <a href="https://www.instagram.com/ketak.nusantara" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61562329289661" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@ketaknusan" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://shopee.co.id/ketakofficial" target="_blank" class="hover:text-ketak transition"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero-section">
+    <img src="/images/hero-bg.jpg" alt="Ketak weaving" class="parallax-img" />
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);"></div>
+    <div class="relative z-10 p-6 md:p-10 pb-10 md:pb-16 w-full">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div class="reveal-left">
+          <div class="text-xs tracking-[0.4em] text-ketak uppercase mb-4">SUSTAINABLE HANDCRAFT</div>
+          <h1 class="mega-text glitch">FROM<br />VILLAGE<br /><span class="text-ketak italic font-light">to the</span><br />WORLD.</h1>
+        </div>
+        <div class="reveal-right max-w-md">
+          <p class="text-gray-400 leading-relaxed text-sm mb-6">Woven from <strong class="text-white">natural Lygodium circinatum</strong> fern — stronger than rattan, softer on earth. By 600+ women artisans in Lombok, Indonesia.</p>
+          <a href="#products" class="text-xs tracking-widest uppercase underline decoration-ketak underline-offset-4 hover:text-ketak transition">Explore Collection ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="bg-ketak text-black py-4 overflow-hidden">
+    <div class="flex gap-12 animate-marquee whitespace-nowrap font-bold uppercase text-lg tracking-wider">
+      <span>Women-Powered</span> ★ <span>Slow Craft</span> ★ <span>Sustainable</span> ★ <span>From Village to the World</span> ★ <span>🇮🇩 Lombok, Indonesia</span> ★
+      <span>Women-Powered</span> ★ <span>Slow Craft</span> ★ <span>Sustainable</span> ★ <span>From Village to the World</span> ★ <span>🇮🇩 Lombok, Indonesia</span> ★
+      <span>Women-Powered</span> ★ <span>Slow Craft</span> ★ <span>Sustainable</span> ★ <span>From Village to the World</span> ★ <span>🇮🇩 Lombok, Indonesia</span> ★
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-[#0a0a0a]">
+    <div class="grid md:grid-cols-2 min-h-screen">
+      <div class="flex flex-col justify-center p-6 md:p-16 lg:p-24 reveal-left">
+        <div class="section-label">02 — Our Story</div>
+        <h2 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] mb-8">
+          Born from a<br /><span class="text-ketak italic">family</span><br />legacy.
+        </h2>
+      </div>
+      <div class="flex flex-col justify-center p-6 md:p-16 lg:p-24 reveal-right">
+        <p class="text-gray-400 leading-relaxed mb-6">It started in <strong class="text-white">1999</strong>, when Dian's parents — <em>Suhartono</em> & <em>Mawarianti</em> — opened <strong class="text-white">Mawar Art Shop</strong> in Lingsar, West Lombok.</p>
+        <p class="text-gray-400 leading-relaxed mb-6">In <strong class="text-white">2021</strong>, their daughter <strong class="text-ketak">Dian Eka Purnama Sari</strong> — scholarship recipient from Indonesia's Ministry of Industry — founded <strong class="text-white">Ketak Nusantara</strong>.</p>
+        <p class="text-gray-300 leading-relaxed text-lg border-l-2 border-ketak pl-6 italic">"If not me as the first daughter, who will carry this legacy forward?"</p>
+        <div class="mt-10 grid grid-cols-3 gap-6">
+          <div>
+            <div class="text-4xl font-bold font-display text-ketak">600+</div>
+            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Artisans</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold font-display text-ketak">5</div>
+            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Countries</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold font-display text-ketak">25+</div>
+            <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Yrs Heritage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="bg-[#0a0a0a]">
+    <div class="p-6 md:p-10 pt-16 md:pt-24">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div class="reveal-left">
+          <div class="section-label">03 — Collection</div>
+          <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05]">THE <span class="text-ketak italic">Collection</span></h2>
+        </div>
+        <div class="reveal-right mt-6 md:mt-0">
+          <p class="text-gray-400 text-sm max-w-xs">Each piece takes <strong class="text-white">30-45 days</strong> to weave. No two are identical.</p>
+        </div>
+      </div>
+    </div>
+    <div class="px-6 md:px-10 pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {products.map((p, i) => (
+          <div class="product-card aspect-[3/4] bg-neutral-900 reveal-scale group cursor-pointer" style={`transition-delay:${i * 0.15}s`} onclick="window.open('https://shopee.co.id/ketakofficial','_blank')">
+            <img src={`/images/${p.img}`} alt={p.name} class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="text-xs text-ketak tracking-widest uppercase mb-2">{p.label}</div>
+              <h3 class="text-2xl font-display font-bold mb-1">{p.name}</h3>
+              <p class="text-gray-400 text-sm">{p.desc}</p>
+              <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-xs tracking-widest uppercase border border-white/30 px-4 py-2 inline-block">Shop Now →</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAL BANNER -->
+  <section class="relative h-[60vh] md:h-[80vh] overflow-hidden">
+    <img src="/images/product-7.jpg" alt="Craft detail" class="absolute inset-0 w-full h-full object-cover parallax-img" />
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center">
+      <div class="reveal px-4">
+        <div class="text-xs tracking-[0.5em] text-ketak uppercase mb-6">THE MATERIAL</div>
+        <h2 class="text-4xl md:text-6xl lg:text-8xl font-display font-bold leading-tight">STRONGER THAN<br /><span class="text-ketak italic">RATTAN.</span></h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder" class="bg-[#0a0a0a]">
+    <div class="grid md:grid-cols-2 min-h-screen">
+      <div class="relative">
+        <img src="/images/owner.jpg" alt="Dian Eka Purnama Sari" class="w-full h-full object-cover img-reveal" />
+      </div>
+      <div class="flex flex-col justify-center p-6 md:p-16 lg:p-24">
+        <div class="section-label">04 — The Founder</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] mb-8 reveal-left">Dian Eka<br /><span class="text-ketak italic">Purnama Sari</span></h2>
+        <div class="space-y-6 reveal-right">
+          <p class="text-gray-400 leading-relaxed">The youngest female entrepreneur in West Nusa Tenggara. Textile scholar funded by Indonesia's <strong class="text-white">Ministry of Industry</strong> scholarship.</p>
+          <p class="text-gray-400 leading-relaxed">She leads a community of <strong class="text-ketak">500-600 women artisans</strong> in Lingsar, bringing Lombok heritage to global markets.</p>
+          <blockquote class="border-l-2 border-ketak pl-6 italic text-lg text-gray-300">"Keep trying — either you win or you learn. We'll never know if we succeed before we start."</blockquote>
+          <a href="https://www.instagram.com/ketak.nusantara" target="_blank" class="text-xs tracking-widest uppercase text-ketak hover:text-white transition"><i class="fa-brands fa-instagram mr-2" /> Follow Dian's Journey</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL -->
+  <section id="global" class="bg-[#0a0a0a] py-20 md:py-32">
+    <div class="px-6 md:px-10">
+      <div class="text-center mb-16 reveal">
+        <div class="section-label">05 — Global Reach</div>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05]">From Lombok to the <span class="text-ketak italic">World.</span></h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-16 reveal">
+        {countries.map((c) => (
+          <div class="text-center">
+            <div class="text-5xl mb-2">{c.emoji}</div>
+            <div class="text-xs tracking-widest text-gray-500 uppercase">{c.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section id="contact" class="relative min-h-[70vh] flex items-center overflow-hidden">
+    <img src="/images/hero-bg.jpg" alt="Woven texture" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto w-full reveal">
+      <div class="text-xs tracking-[0.5em] text-ketak uppercase mb-6">GET IN TOUCH</div>
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-8">Want to<br /><span class="text-ketak italic">collaborate?</span></h2>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10">Wholesale, custom orders, exhibitions, or press inquiries. We'd love to hear from you.</p>
+      <div class="space-y-4">
+        <a href="mailto:ketaknusantara@gmail.com" class="block text-xl font-display hover:text-ketak transition">ketaknusantara@gmail.com</a>
+        <div class="w-16 h-px bg-gray-600 mx-auto my-6" />
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="https://www.instagram.com/ketak.nusantara" target="_blank" class="flex items-center gap-3 px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 transition text-sm">
+            <i class="fa-brands fa-instagram text-lg" /> @ketak.nusantara
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61562329289661" target="_blank" class="flex items-center gap-3 px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 transition text-sm">
+            <i class="fa-brands fa-facebook text-lg" /> Ketak Nusantara
+          </a>
+          <a href="https://www.tiktok.com/@ketaknusan" target="_blank" class="flex items-center gap-3 px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 transition text-sm">
+            <i class="fa-brands fa-tiktok text-lg" /> @ketaknusan
+          </a>
+        </div>
+        <div class="mt-8">
+          <a href="https://shopee.co.id/ketakofficial" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-ketak text-black font-bold rounded-full hover:bg-white transition text-lg">
+            <i class="fa-solid fa-bag-shopping" /> Shop on Shopee
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0a0a0a] border-t border-gray-900 py-12 px-6 md:px-10">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div>
+        <div class="text-2xl font-display font-bold mb-4">KETAK NUSANTARA</div>
+        <p class="text-gray-500 text-sm">Sustainable Handcrafted Bags from Lombok 🌿</p>
+      </div>
+      <div class="text-right">
+        <div class="flex gap-4 text-lg mb-4">
+          <a href="https://www.instagram.com/ketak.nusantara" target="_blank" class="text-gray-400 hover:text-ketak transition"><i class="fa-brands fa-instagram" /></a>
+          <a href="https://www.facebook.com/profile.php?id=61562329289661" target="_blank" class="text-gray-400 hover:text-ketak transition"><i class="fa-brands fa-facebook" /></a>
+          <a href="https://www.tiktok.com/@ketaknusan" target="_blank" class="text-gray-400 hover:text-ketak transition"><i class="fa-brands fa-tiktok" /></a>
+          <a href="https://shopee.co.id/ketakofficial" target="_blank" class="text-gray-400 hover:text-ketak transition"><i class="fa-solid fa-bag-shopping" /></a>
+          <a href="mailto:ketaknusantara@gmail.com" class="text-gray-400 hover:text-ketak transition"><i class="fa-solid fa-envelope" /></a>
+        </div>
+        <p class="text-gray-600 text-xs tracking-wider">Lingsar, West Lombok, NTB, Indonesia</p>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-600 text-xs">© 2025 Ketak Nusantara. All rights reserved.</p>
+      <p class="text-gray-700 text-xs">Women-Powered • Slow Craft • From Village to the World 🇮🇩</p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  function toggleMenu() {
+    const s = document.getElementById('sidebar'),
+      o = document.getElementById('sidebarOverlay'),
+      h = document.getElementById('hamburger');
+    s.classList.toggle('open');
+    o.classList.toggle('open');
+    h.classList.toggle('active');
+  }
+
+  const navbar = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+      navbar.style.backdropFilter = 'blur(10px)';
+      navbar.classList.remove('mix-blend-difference');
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.classList.add('mix-blend-difference');
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .img-reveal').forEach((el) => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax-img').forEach((img) => {
+      const rect = img.closest('section')?.getBoundingClientRect();
+      if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+        img.style.transform = `translateY(${-rect.top * 0.3}px) scale(1.1)`;
+      }
+    });
+  });
+</script>

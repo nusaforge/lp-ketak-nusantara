@@ -1,42 +1,54 @@
 # LP Ketak Nusantara
 
-> Landing page for **Ketak Nusantara** — Sustainable Handcrafted Bags from Lombok
+> Landing page untuk **Ketal Nusantara** — Sustainable Handcrafted Bags from Lombok
 > Women-Powered • Slow Craft • From Village to the World
 
 ---
 
-## 🌿 About
+## 🌿 Tentang
 
-Ketak Nusantara is an Indonesian Heritage Craft House specializing in handcrafted woven bags from Lombok.
+Ketal Nusantara adalah Indonesian Heritage Craft House yang memproduksi tas tenun handmade dari Lombok.
 
-This repository contains the public-facing landing page for the brand.
+Repository ini berisi landing page public untuk brand tersebut.
 
 ## 🛠️ Tech Stack
 
-- HTML5 + Tailwind CSS
-- Vanilla JavaScript
-- Font Awesome icons
+- **Astro 5.x** — Static site generator
+- **Tailwind CSS 3.x** — Utility-first CSS
+- Vanilla JavaScript (client-side interactivity)
 - Google Fonts (Playfair Display, Space Grotesk)
-- No build step — static site ready
+- Font Awesome icons
 
-## 📁 Structure
+## 📁 Struktur
 
 ```
-landing/
-├── index.html          # Main landing page
-├── images/             # Brand assets & product photos
-├── .gitignore
-└── README.md
+src/
+├── layouts/
+│   └── Layout.astro      # Layout utama (head, fonts, styles)
+├── pages/
+│   └── index.astro       # Landing page utama
+public/
+└── images/               # Brand assets & product photos
 ```
 
-## 🚀 Deployment
+## 🚀 Development
 
-Simply host the `index.html` and `images/` folder on any static hosting:
-- GitHub Pages
-- Netlify / Vercel
-- S3 + CloudFront
-- Custom Nginx server
+```bash
+npm install
+npm run dev        # Start dev server (localhost:4321)
+npm run build      # Build to dist/
+npm run preview    # Preview production build
+```
 
-## 🧵 Part of nusaforge
+## 📦 Deployment
 
-This is part of the **nusaforge** collection — crafted landing pages for brands that matter.
+Hasil build (`dist/`) bisa di-deploy ke semua static hosting:
+- **GitHub Pages**
+- **Netlify / Vercel**
+- **Cloudflare Pages**
+- **S3 + CloudFront**
+- **Nginx**
+
+## 🧵 Bagian dari nusaforge
+
+Landing page ini bagian dari koleksi **nusaforge** — crafted landing pages untuk brand yang meaningful.

@@ -1,0 +1,19 @@
+{
+  "name": "lp-ketak-nusantara",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Landing page for Ketak Nusantara — Sustainable Handcrafted Bags from Lombok",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.0",
+    "tailwindcss": "^3.4.0"
+  }
+}
