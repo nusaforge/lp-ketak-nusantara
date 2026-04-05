@@ -36,41 +36,13 @@ const ogImage = 'https://ketaknusantara.fajrika.site/images/hero-bg.jpg';
 ---
 
 <Layout>
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-90 flex items-center justify-between px-6 md:px-10 py-5 mix-blend-difference">
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    <a href="#" class="text-lg md:text-xl font-bold font-display tracking-wider text-white">KETAK NUSANTARA</a>
-    <a href="https://shopee.co.id/ketakofficial" target="_blank"><i class="fa-solid fa-bag-shopping text-lg hover:text-ketak transition"></i></a>
-  </header>
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
-  <nav class="sidebar" id="sidebar">
-    <div class="flex-1">
-      <div class="text-xs tracking-[0.4em] text-gray-500 uppercase mb-10">Navigation</div>
-      <ul class="space-y-6">
-        <li><a href="#home" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">01 — Home</a></li>
-        <li><a href="#about" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">02 — Story</a></li>
-        <li><a href="#products" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">03 — Products</a></li>
-        <li><a href="#founder" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">04 — Founder</a></li>
-        <li><a href="#global" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">05 — Global</a></li>
-        <li><a href="#contact" onclick="toggleMenu()" class="block text-2xl font-display font-bold hover:text-ketak transition">06 — Contact</a></li>
-      </ul>
-    </div>
-    <div class="border-t border-gray-800 pt-8">
-      <div class="text-xs tracking-[0.4em] text-gray-500 uppercase mb-4">Follow</div>
-      <div class="flex gap-4 text-lg">
-        <a href="https://www.instagram.com/ketak.nusantara" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61562329289661" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.tiktok.com/@ketaknusan" target="_blank" class="hover:text-ketak transition"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://shopee.co.id/ketakofficial" target="_blank" class="hover:text-ketak transition"><i class="fa-solid fa-bag-shopping"></i></a>
-      </div>
-    </div>
-  </nav>
+  <!-- HEADER removed -->
 
   <!-- HERO -->
   <section id="home" class="hero-section">
     <img src="/images/hero-bg.jpg" alt="Ketak weaving" class="parallax-img" />
     <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);"></div>
-    <div class="relative z-10 p-6 md:p-10 pb-10 md:pb-16 w-full">
+    <div class="relative z-10 px-6 md:px-10 pb-10 md:pb-16 w-full">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
         <div class="reveal-left">
           <div class="text-xs tracking-[0.4em] text-ketak uppercase mb-4">SUSTAINABLE HANDCRAFT</div>
@@ -263,28 +235,6 @@ const ogImage = 'https://ketaknusantara.fajrika.site/images/hero-bg.jpg';
 </Layout>
 
 <script>
-  function toggleMenu() {
-    const s = document.getElementById('sidebar'),
-      o = document.getElementById('sidebarOverlay'),
-      h = document.getElementById('hamburger');
-    s.classList.toggle('open');
-    o.classList.toggle('open');
-    h.classList.toggle('active');
-  }
-
-  const navbar = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-      navbar.style.backdropFilter = 'blur(10px)';
-      navbar.classList.remove('mix-blend-difference');
-    } else {
-      navbar.style.background = 'transparent';
-      navbar.style.backdropFilter = 'none';
-      navbar.classList.add('mix-blend-difference');
-    }
-  });
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

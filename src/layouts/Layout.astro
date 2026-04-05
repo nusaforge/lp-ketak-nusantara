@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
@@ -17,51 +18,23 @@ const {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content="Indonesian Heritage Craft House. Women-Powered • Slow Craft • Sustainable From Village to the World">
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1240">
+    <meta property="og:image:height" content="931">
+    <meta property="og:image:alt" content="Ketak Nusantara - Woven bags from Lombok">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content={ogImage}>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-[#0a0a0a] text-white font-sans overflow-x-hidden">
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
     <slot />
 </body>
-<style is:global>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Space Grotesk', 'Inter', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
-    .sidebar { position: fixed; top: 0; left: 0; width: 320px; height: 100vh; background: #111; z-index: 100; transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); padding: 80px 40px; display: flex; flex-direction: column; }
-    .sidebar.open { transform: translateX(0); }
-    .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 99; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
-    .sidebar-overlay.open { opacity: 1; pointer-events: all; }
-    .hamburger { width: 32px; height: 20px; position: relative; cursor: pointer; z-index: 110; }
-    .hamburger span { display: block; position: absolute; height: 2px; width: 100%; background: #fff; border-radius: 2px; transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1); }
-    .hamburger span:nth-child(1) { top: 0; }
-    .hamburger span:nth-child(2) { top: 9px; }
-    .hamburger span:nth-child(3) { top: 18px; }
-    .hamburger.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
-    .hamburger.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
-    .hero-section { min-height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
-    .parallax-img { transition: transform 0.1s linear; will-change: transform; }
-    .mega-text { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; }
-    .section-label { font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: #888; margin-bottom: 2rem; }
-    .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-80px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(80px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-    .reveal-scale { opacity: 0; transform: scale(0.92); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-scale.visible { opacity: 1; transform: scale(1); }
-    .img-reveal { opacity: 0; transform: translateX(-60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-    .img-reveal.visible { opacity: 1; transform: translateX(0); }
-    .product-card { overflow: hidden; position: relative; }
-    .product-card img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .product-card:hover img { transform: scale(1.08); }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .animate-marquee { animation: marquee 25s linear infinite; }
-    @keyframes glitch { 0%,100%{text-shadow:2px 0 #a3b16b,-2px 0 #c9a84c} 25%{text-shadow:-2px 0 #a3b16b,2px 0 #c9a84c} 50%{text-shadow:2px 2px #a3b16b,-2px -2px #c9a84c} 75%{text-shadow:-2px 2px #a3b16b,2px -2px #c9a84c} }
-    .glitch:hover { animation: glitch 0.3s ease-in-out infinite; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #111; }
-    ::-webkit-scrollbar-thumb { background: #444; }
-</style>
